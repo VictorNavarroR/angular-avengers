@@ -1,0 +1,26 @@
+<div class="content">
+    <div class="heros">
+        <div class="hero" *ngFor="let avenger of avengers; let i = index" (click)="showDetail(avenger)">
+            <div class="hero__img">
+                <img [src]="avenger.img" alt="marvel hero">
+            </div>
+            <h3 class="hero__title">{{ avenger.hero }}</h3>            
+        </div>
+    </div>
+
+    <!-- detail div -->
+    <div *ngIf="detailPop" class="detail" style="background-image: url('{{popHero.bgImg}}');">
+        <div class="close" (click)="closeDetail()">x</div>
+        <div class="hero-img">
+            <img class="hero-pop-img" [src]="popHero.img" alt="Hero Detail" />
+        </div>
+        <div class="heroInfo">
+            <h1>{{ popHero.name }}</h1>
+            <h2><span class="heroDesc">Transformación:</span> {{ popHero.hero }}</h2>
+            <a href="{{ popHero.link }}" target="_blank">Ver más detalles</a>
+            <p>
+                {{ popHero.history }}
+            </p>
+        </div>
+    </div>
+</div>
